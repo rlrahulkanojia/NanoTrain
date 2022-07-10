@@ -54,13 +54,12 @@ parser.add_argument('--t-max',                 default=100,  type=float,help='T_
 
 # Train params
 parser.add_argument('--batch-size',            default=4,    type=int,help='Batch size for training')
-parser.add_argument('--epochs',                default=30,   type=int,help='the number epochs')
-parser.add_argument('--workers',               default=2,    type=int, help='Number of workers used in dataloading')
+parser.add_argument('--num-epochs',                default=30,   type=int,help='the number epochs')
+parser.add_argument('--num-workers',               default=2,    type=int, help='Number of workers used in dataloading')
 parser.add_argument('--validation-epochs',     default=1,    type=int,help='the number epochs between running validation')
 parser.add_argument('--debug-steps',           default=10,   type=int,help='Set the debug log output frequency.')
 parser.add_argument('--use-cuda',              default=True, type=str2bool,help='Use CUDA to train model')
-parser.add_argument('--model-dir',             default='models/',help='Directory for saving checkpoint models')
-
+parser.add_argument('--checkpoint-folder',     default='models/', help='Directory for saving checkpoint models')
 logging.basicConfig(stream=sys.stdout, level=logging.INFO,
                     format='%(asctime)s - %(message)s', datefmt="%Y-%m-%d %H:%M:%S")
                     
