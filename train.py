@@ -53,10 +53,10 @@ parser.add_argument('--milestones',            default="80,100", type=str,help="
 parser.add_argument('--t-max',                 default=100,  type=float,help='T_max value for Cosine Annealing Scheduler.')
 
 # Train params
-parser.add_argument('--batch-size',            default=4,    type=int,help='Batch size for training')
-parser.add_argument('--num-epochs',                default=30,   type=int,help='the number epochs')
-parser.add_argument('--num-workers',               default=2,    type=int, help='Number of workers used in dataloading')
-parser.add_argument('--validation-epochs',     default=1,    type=int,help='the number epochs between running validation')
+parser.add_argument('--batch-size',            default=16,    type=int,help='Batch size for training')
+parser.add_argument('--num-epochs',            default=30,   type=int,help='the number epochs')
+parser.add_argument('--num-workers',           default=2,    type=int, help='Number of workers used in dataloading')
+parser.add_argument('--validation-epochs',     default=10,    type=int,help='the number epochs between running validation')
 parser.add_argument('--debug-steps',           default=10,   type=int,help='Set the debug log output frequency.')
 parser.add_argument('--use-cuda',              default=True, type=str2bool,help='Use CUDA to train model')
 parser.add_argument('--checkpoint-folder',     default='models/', help='Directory for saving checkpoint models')
@@ -285,7 +285,7 @@ if __name__ == '__main__':
                 f"Validation Regression Loss {val_regression_loss:.4f}, " +
                 f"Validation Classification Loss: {val_classification_loss:.4f}"
             )
-            model_path = os.path.join(args.checkpoint_folder, f"{args.net}-Epoch-{epoch}-Loss-{val_loss}.pth")
+            model_path = os.path.join(args.checkpoint_folder, f"Epoch-{epoch}-Loss-{val_loss}.pth")
             net.save(model_path)
             logging.info(f"Saved model {model_path}")
 

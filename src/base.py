@@ -18,7 +18,7 @@ class BaseNetwork(nn.Module):
         super(BaseNetwork, self).__init__()
 
         self.num_classes = num_classes
-        self.base_net = base_net
+        self.base_net    = base_net
         self.source_layer_indexes = source_layer_indexes
         self.extras = extras
         self.classification_headers = classification_headers

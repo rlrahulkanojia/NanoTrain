@@ -21,8 +21,8 @@ def SeperableConv2d(in_channels, out_channels, kernel_size=1, stride=1, padding=
     )
 
 
-def create_network(num_classes, width_mult=1.0, use_batch_norm=True, onnx_compatible=False, is_test=False):
-    base_net = Backbone(width_mult=width_mult, use_batch_norm=use_batch_norm,
+def create_network(num_classes, width_mult=1.0, use_batch_norm=True, onnx_compatible=True, is_test=False):
+    base_net = Backbone(width_mult = width_mult, use_batch_norm=use_batch_norm,
                            onnx_compatible=onnx_compatible).features
 
     source_layer_indexes = [
