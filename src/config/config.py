@@ -3,7 +3,7 @@ import numpy as np
 from utils.box_utils import Spec, BoxSizes, generate_priors
 
 
-image_size      = 736
+# image_size      = 300
 image_mean      = np.array([127, 127, 127])  # RGB layout
 image_std       = 128.0
 iou_threshold   = 0.45
@@ -21,14 +21,12 @@ size_variance   = 0.2
 
 image_size = 736
 specs = [
-    Spec(48, 8,  BoxSizes(60, 105),  [2]),
-    Spec(32, 16, BoxSizes(50, 150),  [2, 3]),
-    Spec(16, 32, BoxSizes(150, 195), [3   ]),
-    Spec(8,  64, BoxSizes(100, 240), [2, 3]),
-    Spec(4,  64, BoxSizes(240, 320), [3]),
-    Spec(4,  64, BoxSizes(320, 380), [3]),
-    Spec(4, 128, BoxSizes(300, 400), [2, 3]),
-    Spec(2, 256, BoxSizes(500, 620), [2, 1, 3]),
-    Spec(1, 512, BoxSizes(620, 736), [1])
+    Spec(46, 16, BoxSizes(60, 105), [2, 3]),
+    Spec(23, 32, BoxSizes(105, 150), [2, 3]),
+    Spec(11, 64, BoxSizes(150, 195), [2, 3]),
+    Spec(7, 100, BoxSizes(195, 240), [2, 3]),
+    Spec(4, 150, BoxSizes(240, 285), [2, 3]),
+    Spec(2, 300, BoxSizes(285, 330), [2, 3])
 ]
+
 priors = generate_priors(specs, image_size)
