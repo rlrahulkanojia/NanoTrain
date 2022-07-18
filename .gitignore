@@ -2,3 +2,4 @@ data/*
 src/__pycache__
 utils/__pycache__
 models/
+models_300/

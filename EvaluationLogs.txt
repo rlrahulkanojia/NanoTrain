@@ -1,0 +1,32 @@
+python eval.py --trained_model models/Epoch-29-Loss-2.452163635043923.pth  --dataset data/person_dog/ --label_file models/labels.txt
+
+Epoch - 10
+Average Precision Per-class:
+Dog: 0.8541904108746522
+Person: 0.7638112846265678
+
+Epoch - 20
+Average Precision Per-class:
+Dog:    0.8465997619717264
+Person: 0.795172503677523
+
+Epoch - 29
+Average Precision Per-class:
+Dog: 0.8070291392903917
+Person: 0.8006488877766393
+
+
+Epoch - 50
+Average Precision Per-class:
+Dog: 0.8874452032578072
+Person: 0.8230926088633218
+
+Epoch - 90
+Average Precision Per-class:
+Dog: 0.898182239736994
+Person: 0.8662951777062048
+
+Epoch - 110
+Average Precision Per-class:
+Dog: 0.89568542064446
+Person: 0.8694786668262285

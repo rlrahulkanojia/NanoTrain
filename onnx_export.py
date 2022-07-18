@@ -12,8 +12,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--input',      type=str, default='', help="path to input PyTorch model (.pth checkpoint)")
 parser.add_argument('--output',     type=str, default='', help="desired path of converted ONNX model (default: <NET>.onnx)")
 parser.add_argument('--labels',     type=str, default='labels.txt', help="name of the class labels file")
-parser.add_argument('--width',      type=int, default=300, help="input width of the model to be exported (in pixels)")
-parser.add_argument('--height',     type=int, default=300, help="input height of the model to be exported (in pixels)")
+parser.add_argument('--width',      type=int, default=640, help="input width of the model to be exported (in pixels)")
+parser.add_argument('--height',     type=int, default=640, help="input height of the model to be exported (in pixels)")
 parser.add_argument('--batch-size', type=int, default=1, help="batch size of the model to be exported (default=1)")
 parser.add_argument('--model-dir',  type=str, default='', help="directory to look for the input PyTorch model in, and export the converted ONNX model to (if --output doesn't specify a directory)")
 
@@ -22,7 +22,7 @@ print(args)
 
 # set the device
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-print('running on device ' + str(device))
+print('running on device ' + "---"+str(device)+"---")
 
 # format input model paths
 if args.model_dir:
@@ -67,10 +67,10 @@ net.to(device)
 net.eval()
 
 # create example image data
-if device == 'cuda: 0':
+if device == 'cuda:0':
     dummy_input = torch.randn(args.batch_size, 3, args.height, args.width).cuda()
-else:    
-    dummy_input = torch.randn(args.batch_size, 3, args.height, args.width)
+else:  
+    dummy_input = torch.randn(args.batch_size, 3, args.height, args.width).cuda()
 
 # format output model path
 if not args.output:

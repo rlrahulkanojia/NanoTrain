@@ -7,7 +7,7 @@ import numpy as np
 
 from utils.misc import str2bool, Timer
 from utils import box_utils, measurements
-from vision.datasets.open_images import OpenImagesDataset
+from src.open_images import OpenImagesDataset
 from src.network import create_network, create_network_predictor
 
 
@@ -17,6 +17,7 @@ parser.add_argument("--dataset",       type=str, help="The root directory of the
 parser.add_argument("--label_file",    type=str, help="The label file path.")
 parser.add_argument("--use_cuda",      type=str2bool, default=True)
 parser.add_argument("--nms_method",    type=str, default="hard")
+parser.add_argument("--use_2007_metric", type=str2bool, default=True)
 parser.add_argument("--iou_threshold", type=float, default=0.5, help="The threshold of Intersection over Union.")
 parser.add_argument("--eval_dir",      default="eval_results", type=str, help="The directory to store evaluation results.")
 parser.add_argument('--width_mult',    default=1.0, type=float,help='Width Multiplifier for Network')

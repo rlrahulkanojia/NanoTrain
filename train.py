@@ -36,7 +36,7 @@ parser.add_argument('--pretrained',            default='models/pretrained.pth', 
 parser.add_argument('--resume',                default=None, type=str,help='Checkpoint state_dict file to resume training from')
 
 # Params for SGD
-parser.add_argument('--lr', '--learning-rate', default=0.01, type=float,help='initial learning rate')
+parser.add_argument('--lr', '--learning-rate', default=0.005, type=float,help='initial learning rate')
 parser.add_argument('--momentum',              default=0.9, type=float,help='Momentum value for optim')
 parser.add_argument('--weight-decay',          default=5e-4, type=float,help='Weight decay for SGD')
 parser.add_argument('--gamma',                 default=0.1, type=float,help='Gamma update for SGD')
@@ -47,19 +47,19 @@ parser.add_argument('--extra-layers-lr',       default=None, type=float,help='in
 parser.add_argument('--scheduler',             default="cosine", type=str,help="Scheduler for SGD. It can one of multi-step and cosine")
 
 # Params for Multi-step Scheduler
-parser.add_argument('--milestones',            default="80,100", type=str,help="milestones for MultiStepLR")
+parser.add_argument('--milestones',            default="50,80,100", type=str,help="milestones for MultiStepLR")
 
 # Params for Cosine Annealing
 parser.add_argument('--t-max',                 default=100,  type=float,help='T_max value for Cosine Annealing Scheduler.')
 
 # Train params
-parser.add_argument('--batch-size',            default=16,    type=int,help='Batch size for training')
-parser.add_argument('--num-epochs',            default=30,   type=int,help='the number epochs')
-parser.add_argument('--num-workers',           default=2,    type=int, help='Number of workers used in dataloading')
+parser.add_argument('--batch-size',            default=32,    type=int,help='Batch size for training')
+parser.add_argument('--num-epochs',            default=300,   type=int,help='the number epochs')
+parser.add_argument('--num-workers',           default=8,    type=int, help='Number of workers used in dataloading')
 parser.add_argument('--validation-epochs',     default=10,    type=int,help='the number epochs between running validation')
-parser.add_argument('--debug-steps',           default=10,   type=int,help='Set the debug log output frequency.')
+parser.add_argument('--debug-steps',           default=50,   type=int,help='Set the debug log output frequency.')
 parser.add_argument('--use-cuda',              default=True, type=str2bool,help='Use CUDA to train model')
-parser.add_argument('--checkpoint-folder',     default='models/', help='Directory for saving checkpoint models')
+parser.add_argument('--checkpoint-folder',     default='models_300/', help='Directory for saving checkpoint models')
 logging.basicConfig(stream=sys.stdout, level=logging.INFO,
                     format='%(asctime)s - %(message)s', datefmt="%Y-%m-%d %H:%M:%S")
                     
